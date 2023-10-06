@@ -1,16 +1,25 @@
-<div class="container d-flex flex-column justify-content-center my-5">
-    <div class="col-md-12 col-lg-6 my-3 border text-center">
-        <app-qrcode></app-qrcode>
+<div class="container d-flex flex-column justify-content-center align-items-center">
+  <div class="col-lg-6 col-md-10 mt-5">
+    <div class="row text-center">
+      <div *ngIf="isQrGenerated; else elseBlock">
+        <app-qrcode [qrData]="qrData"></app-qrcode>
+      </div>
+      <ng-template #elseBlock>
+        <app-qr-placeholder ></app-qr-placeholder>
+      </ng-template>
     </div>
-    <div class="col-md-12 col-lg-6 mt-5 border p-5">
-        <form class="row g-3 needs-validation" novalidate>
-            <div class="col-12">
-              <label for="data" class="form-label">Textual Data</label>
-              <input type="text" class="form-control" id="data" value="Mark" required>
-            </div>
-            <div class="col-10 text-center">
-              <button class="btn btn-primary" type="submit">Generate QR Code</button>
-            </div>
-          </form>
-    </div>
+  </div>
+  <div class="col-lg-6 col-md-10 mt-5 border p-5">
+    <form class="row g-3" #qrForm="ngForm" (ngSubmit)="submit(qrForm)" novalidate>
+      <div class="col-12">
+        <label for="qrdata" class="form-label">Text Data to encode in QR</label>
+        <input type="text" class="form-control" id="qrdata" name="qrdata" aria-describedby="qrDataHelp" #qrdata="ngModel"
+          ngModel [class.is-invalid]="qrdata.touched && qrdata.invalid" required />
+        <div id="qrDataHelp" class="form-text text-danger" [class.d-none]="!qrdata.touched || qrdata.valid">Enter some data to generate QR code.</div>
+      </div>
+      <div class="col-10 text-center">
+        <button class="btn btn-primary" [disabled]="!qrForm.valid" type="submit">Generate QR Code</button>
+      </div>
+    </form>
+  </div>
 </div>

@@ -1,14 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+
+import { QRCodeModule } from 'angularx-qrcode';
 
 import { AppComponent } from './app.component';
 
 import { QrcodeComponent } from './qrcode/qrcode.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { AppRoutingModule } from './app-routing.module';
 import { ScannerComponent } from './scanner/scanner.component';
 import { GeneratorComponent } from './generator/generator.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { QrPlaceholderComponent } from './qr-placeholder/qr-placeholder.component';
 
 @NgModule({
   declarations: [
@@ -17,11 +21,14 @@ import { HomePageComponent } from './home-page/home-page.component';
     NavbarComponent,
     ScannerComponent,
     GeneratorComponent,
-    HomePageComponent
+    HomePageComponent,
+    QrPlaceholderComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    AppRoutingModule,
+    QRCodeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

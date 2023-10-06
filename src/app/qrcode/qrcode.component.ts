@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-qrcode',
@@ -6,9 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./qrcode.component.css']
 })
 export class QrcodeComponent {
-  public myAngularxQrCode: string;
+  @Input() qrData = '';
   
-  constructor () {
-    this.myAngularxQrCode = '1234567890';
-  }
+  constructor () { }
 }
