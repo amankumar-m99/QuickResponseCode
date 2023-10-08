@@ -51,6 +51,20 @@ export class ScannerComponent {
       // the user granted permission
       return true;
     }
+    else{
+      navigator.mediaDevices
+      .getUserMedia({ video: true, audio: false })
+      .then((stream) => {
+        // window.localStream = stream;
+        // window.localAudio.srcObject = stream;
+        // window.localAudio.autoplay = true;
+        true;
+      })
+      .catch((err) => {
+        console.error(`you got an error: ${err}`);
+        return false;
+      });
+    }
     console.log("permission not granted");
     alert("permission not granted");
     return false;
