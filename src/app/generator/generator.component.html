@@ -12,8 +12,8 @@
       </div>
       <div class="container mt-5">
         <div class="row justify-content-evenly">
-          <button class="btn btn-outline-primary col-8 col-md-6 col-lg-5 mb-4" [disabled]="!isQrGenerated"> Download as PDF</button>
-          <button class="btn btn-outline-primary col-8 col-md-6 col-lg-5 mb-4" [disabled]="!isQrGenerated" (click)="downloadQR()">Download as Image</button>
+          <button class="btn btn-outline-primary col-8 col-md-6 col-lg-5 mb-4" [disabled]="!isQrGenerated" (click)="downloadQRPdf()">Download as PDF</button>
+          <button class="btn btn-outline-primary col-8 col-md-6 col-lg-5 mb-4" [disabled]="!isQrGenerated" (click)="downloadQRImage()">Download as Image</button>
         </div>
       </div>
     </div>

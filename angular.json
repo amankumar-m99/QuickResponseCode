@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": ["html2pdf.js"],
             "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -29,7 +30,7 @@
               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": ["./node_modules/html2pdf.js/dist/html2pdf.bundle.min.js"]
           },
           "configurations": {
             "production": {

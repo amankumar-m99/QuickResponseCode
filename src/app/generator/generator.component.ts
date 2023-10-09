@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import * as htmlToImage from 'html-to-image';
+declare let html2pdf: any;
 
 @Component({
   selector: 'app-generator',
@@ -18,7 +19,17 @@ export class GeneratorComponent {
     this.isQrGenerated = true;
   }
 
-  downloadQR() {
+  downloadQRPdf() {
+    let node = document.getElementById('generated-qr-code');
+    if (node != null) {
+      html2pdf().from(node).save("quick-response-code.pdf");
+    }
+    else{
+      alert("No qr genrated");
+    }
+  }
+
+  downloadQRImage() {
     let node = document.getElementById('generated-qr-code');
     if (node != null) {
       htmlToImage.toJpeg(node, { quality: 0.95 })
