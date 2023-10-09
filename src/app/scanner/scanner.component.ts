@@ -9,6 +9,7 @@ import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
 })
 export class ScannerComponent {
   scannedResult="";
+  visibleQr=true;
   startScan = async () => {
     // Check camera permission
     // This is just a simple example, check out the better checks below
@@ -16,10 +17,12 @@ export class ScannerComponent {
   
     // make background of WebView transparent
     // note: if you are using ionic this might not be enough, check below
-    BarcodeScanner.hideBackground();
-    BarcodeScanner.openAppSettings();
+    // BarcodeScanner.hideBackground();
+    const setting = await BarcodeScanner.openAppSettings();
     const result = await BarcodeScanner.startScan(); // start scanning and wait for a result
     // if the result has content
+    document.getElementById("scanner-modal")?.classList.remove("visible-false");
+    document.getElementById("scanner-modal")?.classList.add("visible-true");
     if (result.hasContent) {
       console.log(result.content); // log the raw scanned content
       this.scannedResult = result.content;
@@ -70,6 +73,8 @@ export class ScannerComponent {
     return false;
   };
     async scanQR(){
+      document.getElementById("scanner-modal")?.classList.remove("visible-true");
+      document.getElementById("scanner-modal")?.classList.add("visible-false");
     if(await this.checkPermission()){
       this.startScan();
     }
