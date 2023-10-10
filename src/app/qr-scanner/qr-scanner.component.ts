@@ -23,7 +23,7 @@ export class QrScannerComponent {
     // make background of WebView transparent
     // note: if you are using ionic this might not be enough, check below
     // BarcodeScanner.hideBackground();
-    const setting = await BarcodeScanner.openAppSettings();
+    // const setting = await BarcodeScanner.openAppSettings();
     const result = await BarcodeScanner.startScan(); // start scanning and wait for a result
     // if the result has content
     document.getElementById("scanner-modal")?.classList.remove("visible-false");
@@ -54,10 +54,23 @@ export class QrScannerComponent {
     console.log("seeking permission");
     // alert("seeking permission");
     const status = await BarcodeScanner.checkPermission({ force: true });
-
     if (status.granted) {
-      // the user granted permission
       return true;
+    }
+    else if(status.denied){
+      alert("User denied camera permission");
+    }
+    else if(status.asked){
+      alert("User was asked camera permission");
+    }
+    else if(status.neverAsked){
+      alert("User was never asked camera permission");
+    }
+    else if(status.restricted){
+      alert("Restricted camera permission");
+    }
+    else if(status.unknown){
+      alert("Camera permission status can't be known");
     }
     else{
       navigator.mediaDevices
@@ -73,13 +86,11 @@ export class QrScannerComponent {
         return false;
       });
     }
-    console.log("permission not granted");
-    alert("permission not granted");
     return false;
   };
   async scanQR(){
-    document.getElementById("scanner-modal")?.classList.remove("visible-true");
-    document.getElementById("scanner-modal")?.classList.add("visible-false");
+    // document.getElementById("scanner-modal")?.classList.remove("visible-true");
+    // document.getElementById("scanner-modal")?.classList.add("visible-false");
     if(await this.checkPermission()){
       this.startScan();
     }
