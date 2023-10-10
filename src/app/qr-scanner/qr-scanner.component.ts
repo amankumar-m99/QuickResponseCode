@@ -3,11 +3,12 @@ import { Component } from '@angular/core';
 import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
 
 @Component({
-  selector: 'app-scanner',
-  templateUrl: './scanner.component.html',
-  styleUrls: ['./scanner.component.css']
+  selector: 'app-qr-scanner',
+  templateUrl: './qr-scanner.component.html',
+  styleUrls: ['./qr-scanner.component.css']
 })
-export class ScannerComponent {
+
+export class QrScannerComponent {
   scannedResult="";
   visibleQr=true;
   startScan = async () => {
@@ -82,3 +83,4 @@ export class ScannerComponent {
     }
   }
 }
+

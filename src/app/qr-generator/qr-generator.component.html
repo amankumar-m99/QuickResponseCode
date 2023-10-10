@@ -1,0 +1,37 @@
+<div class="container mt-5">
+    <div class="row justify-content-evenly">
+      <div class="order-2 col-10 col-md-6 col-lg-5 border">
+        <div class="text-center qr-holder row align-items-center">
+          <div *ngIf="isQrGenerated then ifBlock else elseBlock"></div>
+          <ng-template #ifBlock>
+            <app-qrcode id="generated-qr-code" [qrData]="qrData"></app-qrcode>
+          </ng-template>
+          <ng-template #elseBlock>
+            <span class="text-center mx-auto my-5">Generated QR shall appear here</span>
+            <!-- <app-qr-placeholder></app-qr-placeholder> -->
+          </ng-template>
+        </div>
+        <div class="container mt-5">
+          <div class="row justify-content-evenly">
+            <button class="btn btn-outline-primary col-8 col-md-6 col-lg-5 mb-4" [disabled]="!isQrGenerated" (click)="downloadQRPdf()">Download as PDF</button>
+            <button class="btn btn-outline-primary col-8 col-md-6 col-lg-5 mb-4" [disabled]="!isQrGenerated" (click)="downloadQRImage()">Download as Image</button>
+          </div>
+        </div>
+      </div>
+      <div class="order-1 col-10 col-md-5 col-lg-5 my-5 my-lg-1 border form-container">
+        <form class="row g-3" #qrForm="ngForm" (ngSubmit)="submit(qrForm)" novalidate>
+          <div class="col-12">
+            <label for="qrdata" class="form-label">Text Data to encode in QR</label>
+            <textarea class="form-control" id="qrdata" name="qrdata" aria-describedby="qrDataHelp" required
+              #qrdata="ngModel" ngModel [class.is-invalid]="qrdata.touched && qrdata.invalid" rows="8"></textarea>
+            <div id="qrDataHelp" class="form-text text-danger" [class.d-none]="!qrdata.touched || qrdata.valid">Enter some
+              data to generate QR code.</div>
+          </div>
+          <div class="row my-5 justify-content-evenly">
+            <button class="btn btn-primary col-10 col-md-6 col-lg-5 mb-4" [disabled]="!qrForm.valid" type="submit">Generate QR Code</button>
+            <button class="btn btn-primary col-10 col-md-6 col-lg-5 mb-4" [disabled]="!qrForm.valid" type="button">Clear QR Code</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

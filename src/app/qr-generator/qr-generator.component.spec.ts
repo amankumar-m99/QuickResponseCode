@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { QrPlaceholderComponent } from './qr-placeholder.component';
+import { QrGeneratorComponent } from './qr-generator.component';
 
-describe('QrPlaceholderComponent', () => {
-  let component: QrPlaceholderComponent;
-  let fixture: ComponentFixture<QrPlaceholderComponent>;
+describe('QrGeneratorComponent', () => {
+  let component: QrGeneratorComponent;
+  let fixture: ComponentFixture<QrGeneratorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ QrPlaceholderComponent ]
+      declarations: [ QrGeneratorComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(QrPlaceholderComponent);
+    fixture = TestBed.createComponent(QrGeneratorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

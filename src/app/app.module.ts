@@ -6,23 +6,20 @@ import { FormsModule } from '@angular/forms';
 import { QRCodeModule } from 'angularx-qrcode';
 
 import { AppComponent } from './app.component';
-
-import { QrcodeComponent } from './qrcode/qrcode.component';
+import { QrGeneratorComponent } from './qr-generator/qr-generator.component';
+import { HomepageComponent } from './homepage/homepage.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { ScannerComponent } from './scanner/scanner.component';
-import { GeneratorComponent } from './generator/generator.component';
-import { HomePageComponent } from './home-page/home-page.component';
-import { QrPlaceholderComponent } from './qr-placeholder/qr-placeholder.component';
+import { QrcodeComponent } from './qrcode/qrcode.component';
+import { QrScannerComponent } from './qr-scanner/qr-scanner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    QrcodeComponent,
+    QrGeneratorComponent,
+    HomepageComponent,
     NavbarComponent,
-    ScannerComponent,
-    GeneratorComponent,
-    HomePageComponent,
-    QrPlaceholderComponent
+    QrcodeComponent,
+    QrScannerComponent
   ],
   imports: [
     BrowserModule,

@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ScannerComponent } from './scanner/scanner.component';
-import { GeneratorComponent } from './generator/generator.component';
-import { HomePageComponent } from './home-page/home-page.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { QrScannerComponent } from './qr-scanner/qr-scanner.component';
+import { QrGeneratorComponent } from './qr-generator/qr-generator.component';
 
 const routes: Routes = [
-  {path:'', component: HomePageComponent},
-  {path:'scan', component: ScannerComponent},
-  {path:'generate', component: GeneratorComponent}
+  {path:'', component: HomepageComponent},
+  {path:'scan', component: QrScannerComponent},
+  {path:'generate', component: QrGeneratorComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }
