@@ -11,6 +11,10 @@ import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
 export class QrScannerComponent {
   scannedResult="";
   visibleQr=true;
+
+  ngOnInit(){
+    this.scanQR();
+  }
   startScan = async () => {
     // Check camera permission
     // This is just a simple example, check out the better checks below
@@ -73,9 +77,9 @@ export class QrScannerComponent {
     alert("permission not granted");
     return false;
   };
-    async scanQR(){
-      document.getElementById("scanner-modal")?.classList.remove("visible-true");
-      document.getElementById("scanner-modal")?.classList.add("visible-false");
+  async scanQR(){
+    document.getElementById("scanner-modal")?.classList.remove("visible-true");
+    document.getElementById("scanner-modal")?.classList.add("visible-false");
     if(await this.checkPermission()){
       this.startScan();
     }
@@ -83,4 +87,3 @@ export class QrScannerComponent {
     }
   }
 }
-

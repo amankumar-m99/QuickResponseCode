@@ -8,6 +8,7 @@ import * as htmlToImage from 'html-to-image';
   templateUrl: './qr-generator.component.html',
   styleUrls: ['./qr-generator.component.css'],
 })
+
 export class QrGeneratorComponent {
   public qrData: string = '';
   public isQrGenerated = false;
