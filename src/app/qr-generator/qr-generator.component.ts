@@ -19,6 +19,11 @@ export class QrGeneratorComponent {
     this.isQrGenerated = true;
   }
 
+  clearQRCode(){
+    this.qrData = '';
+    this.isQrGenerated = false;
+  }
+
   downloadQRPdf() {
     let node = document.getElementById('generated-qr-code');
     if (node != null) {

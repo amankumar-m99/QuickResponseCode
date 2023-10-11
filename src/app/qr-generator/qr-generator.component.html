@@ -29,7 +29,7 @@
           </div>
           <div class="row my-5 justify-content-evenly">
             <button class="btn btn-primary col-10 col-md-6 col-lg-5 mb-4" [disabled]="!qrForm.valid" type="submit">Generate QR Code</button>
-            <button class="btn btn-primary col-10 col-md-6 col-lg-5 mb-4" [disabled]="!qrForm.valid" type="button">Clear QR Code</button>
+            <button class="btn btn-primary col-10 col-md-6 col-lg-5 mb-4" [disabled]="!qrForm.valid" type="button" (click)="clearQRCode()">Clear QR Code</button>
           </div>
         </form>
       </div>
